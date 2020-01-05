@@ -29,6 +29,11 @@ export class CategoryService {
     return category;
   }
 
+  public async getCategoryByName(name: string): Promise<ICategory> {
+    const category = await Category.findOne({ name }).exec();
+    return category;
+  }
+
   public async addCategory(category: ICategory): Promise<ICategory> {
     const createdCategory = await new Category(category).save();
     return createdCategory;

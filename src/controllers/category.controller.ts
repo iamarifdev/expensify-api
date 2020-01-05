@@ -32,7 +32,7 @@ export class CategoryController implements interfaces.Controller {
    * Get category by Id
    * @param req
    */
-  @Get('/{id}')
+  @Get('/id/{id}')
   public async getCategoryById(req: Request) {
     try {
       const categoryId = req.params.id as string;
@@ -40,6 +40,24 @@ export class CategoryController implements interfaces.Controller {
         return new NotFoundError();
       }
       const category = await this.categoryService.getCategoryById(categoryId);
+      return category;
+    } catch (error) {
+      return new NotFoundError(error);
+    }
+  }
+
+  /**
+   * Get category by name
+   * @param req
+   */
+  @Get('/name/{name}')
+  public async getCategoryByName(req: Request) {
+    try {
+      const categoryName = req.params.name as string;
+      if (!categoryName) {
+        return new NotFoundError();
+      }
+      const category = await this.categoryService.getCategoryByName(categoryName);
       return category;
     } catch (error) {
       return new NotFoundError(error);
