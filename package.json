@@ -42,7 +42,7 @@
     "@types/restify-errors": "^4.3.3",
     "@types/shelljs": "^0.8.6",
     "chai": "^4.2.0",
-    "mocha": "^6.2.2",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.1",
     "prettier": "^1.19.1",
     "shelljs": "^0.8.3",
